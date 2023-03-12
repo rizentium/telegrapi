@@ -3,7 +3,6 @@ import 'package:telegrapi/src/interfaces/response.dart';
 import 'package:telegrapi/src/telegrapi_method_channel.dart';
 import 'package:telegrapi/src/telegrapi_platform_interface.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
-import 'package:telegrapi/telegrapi.dart';
 
 class MockTelegrapiPlatform
     with MockPlatformInterfaceMixin
