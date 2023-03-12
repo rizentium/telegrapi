@@ -1,15 +1,21 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:telegrapi/telegrapi.dart';
-import 'package:telegrapi/telegrapi_platform_interface.dart';
-import 'package:telegrapi/telegrapi_method_channel.dart';
+import 'package:telegrapi/src/interfaces/response.dart';
+import 'package:telegrapi/src/telegrapi_method_channel.dart';
+import 'package:telegrapi/src/telegrapi_platform_interface.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
+import 'package:telegrapi/telegrapi.dart';
 
 class MockTelegrapiPlatform
     with MockPlatformInterfaceMixin
     implements TelegrapiPlatform {
-
   @override
-  Future<String?> getPlatformVersion() => Future.value('42');
+  Future<Response> sendMessage({
+    required String chatId,
+    required String message,
+  }) {
+    // TODO: implement sendMessage
+    throw UnimplementedError();
+  }
 }
 
 void main() {
@@ -19,11 +25,5 @@ void main() {
     expect(initialPlatform, isInstanceOf<MethodChannelTelegrapi>());
   });
 
-  test('getPlatformVersion', () async {
-    Telegrapi telegrapiPlugin = Telegrapi();
-    MockTelegrapiPlatform fakePlatform = MockTelegrapiPlatform();
-    TelegrapiPlatform.instance = fakePlatform;
-
-    expect(await telegrapiPlugin.getPlatformVersion(), '42');
-  });
+  test('sendMessage', () async {});
 }
